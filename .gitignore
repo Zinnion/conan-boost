@@ -1,4 +1,1 @@
-build
-*.pyc
-kk
-
+test_package/build
