@@ -99,13 +99,13 @@ class BoostConan(ConanFile):
     def configure(self):
         if self.zip_bzip2_requires_needed:
             if self.options.zlib:
-                self.requires("zlib/1.2.11@conan/stable")
+                self.requires("zlib/1.2.11@zinnion/stable")
             if self.options.bzip2:
-                self.requires("bzip2/1.0.6@conan/stable")
+                self.requires("bzip2/1.0.6@zinnion/stable")
             if self.options.lzma:
-                self.requires("lzma/5.2.4@bincrafters/stable")
+                self.requires("lzma/5.2.4@zinnion/stable")
             if self.options.zstd:
-                self.requires("zstd/1.3.5@bincrafters/stable")
+                self.requires("zstd/1.3.5@zinnion/stable")
 
     def package_id(self):
         if self.options.header_only:
