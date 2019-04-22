@@ -26,7 +26,7 @@ lib_list = ['math', 'wave', 'container', 'contract', 'exception', 'graph', 'iost
 
 class BoostConan(ConanFile):
     name = "boost"
-    version = "1.69.0"
+    version = "1.70.0"
     settings = "os", "arch", "compiler", "build_type", "cppstd"
     folder_name = "boost_%s" % version.replace(".", "_")
     description = "Boost provides free peer-reviewed portable C++ source libraries"
@@ -123,16 +123,12 @@ class BoostConan(ConanFile):
             sha256 = "d074bcbcc0501c4917b965fc890e303ee70d8b01ff5712bae4a6c54f2b6b4e52"
             extension = ".zip"
         else:
-            sha256 = "9a2c2819310839ea373f42d69e733c339b4e9a19deab6bfec448281554aa4dbb"
+            sha256 = "882b48708d211a5f48e60b0124cf5863c1534cd544ecd0664bb534a4b5d506e9"
             extension = ".tar.gz"
 
         zip_name = "%s%s" % (self.folder_name, extension)
         url = "https://dl.bintray.com/boostorg/release/%s/source/%s" % (self.version, zip_name)
         tools.get(url, sha256=sha256)
-
-        for patch in ["static_object_init.patch", "python_base_prefix.patch", "boost_build_asmflags.patch"]:
-            tools.patch(patch_file=os.path.join("patches", patch),
-                        base_path=os.path.join(self.source_folder, self.folder_name))
 
 
     ##################### BUILDING METHODS ###########################
